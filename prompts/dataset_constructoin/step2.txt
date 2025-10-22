@@ -1,0 +1,46 @@
+<Instruction>
+あなたはRAG評価ベンチマークのRAGBenchを作成するアシスタントの一員です。
+ユーザから与えられる<QA_SCENARIO>および<QA_TYPE>に基づいたRAGBenchの「質問、関連文書のリスト、推論過程、正答」を作成してください。
+RAGBenchは<DEFINITION_RAGBENCH>に説明されています。
+QAシナリオの説明は<QA_SCENARIO>に説明されています。
+<Notes>を遵守してください。
+出力は<Output_Format>に従ってください。
+</Instruction>
+<QA_SCENARIO>
+- 具体的なRAGBenchの問題を作成するための骨子となるQAシナリオ。
+- QAシナリオは以下の要素を含む。
+	- theme: 作成するQAのテーマ
+	- evidences: questionからanswerを導出するための根拠となるエンティティに関する文章。複数の根拠を要するQAの場合は複数の説明がカンマ区切りで記述される。
+	- answering_process: questionに対してevidencesを用いてanswerを導出するために必要な簡潔な推論手順。
+</QA_SCENARIO>
+<Output_Format>
+- question: 質問
+- positive_chunk_list: questionからanswerを導出するための根拠となる情報が含まれる文書のリスト。複数の情報源から根拠を集めて回答する必要がある場合にリストの大きさは2以上となる。単一の情報源からの抽出のみの場合はリストの大きさは1となる。
+- reasoning_content: questionからpositive_chunk_listの根拠に関する記述(<evidence>に対応する文章)を適切に引用し、asnwerを導くための推論過程
+- answer: questionに対する正答。推論過程は含めず最終解答のみを簡潔に記述。
+</Output_Format>
+<Notes>
+- <QA_TYPE>を全ての項目を反映したシナリオとする。QA_TYPEはそれぞれ独立した評価観点であり、「設定しない」とされている評価カテゴリおよび評価観点は、シナリオに反映してはならない。
+- 出力する問題のいずれの要素においても、「架空」という単語や「このデータ・名前・情報は架空である」などの記述は一切用いてはならない。
+- <Output_Format>にしたがって、question, positive_chunk_list, reasoning_content, answerを作成する。以下にそれぞれの注意事項を記述する。
+- 正答が「該当なし」などの生成は禁止である。明確に答えの存在する問題を作成してください。
+## 各出力物の注意事項
+### question
+- 一文で簡潔に作成する
+- answerを導くためのヒントを含めることは禁止。例えば、どのドキュメントの情報を参照するかの情報、推論過程のヒント等
+### positive_chunk_list
+- <QA_SCENARIO>のevidencesを基に、根拠となる記述が含まれる文書を作成する
+- <QA_SCENARIO>のanswering_processの内容を入れることは禁止です。
+- <QA_SCENARIO>のevidencesの各要素にあたる記述は、根拠タグ(始点は<evidence>、終点は</evidence>)で明示すること。
+- 根拠タグ <evidence>に関する説明の文章は記載せず、全体の定義や説明に関する文章のうち、根拠の記述箇所を明示するためだけの用途である。
+- 「抜粋」・「断片」などの単語の使用は禁止。
+- answer生成に必要な推論過程およびそのヒントを含めることは禁止。
+- positive_chunk_listにはevidenceに関するのみを独立して記載してください。**必要情報をまとめただけの説明文は禁止。**
+- 第三者視点で記述された文章は望ましくない。例えば、「xにはyである旨が記載されている」、「xにはyであると明記されています」などがこれに該当する。
+### reasoning_content
+- questionからpositive_chunk_listの根拠に関する記述(<evidence>に対応する文章)を適切に引用し、asnwerを導くための推論過程を簡潔に記述する
+### answer
+- answerが必ずclosed end(正解が一つに定まるような)かつ簡潔な一文となるQAシナリオを作成する。
+- answerが記述回答になるようなQAシナリオの生成は禁止
+- answerが二値(はい/いいえ)となるQAシナリオの生成は禁止
+</Notes>

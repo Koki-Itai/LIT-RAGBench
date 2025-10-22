@@ -1,0 +1,28 @@
+<Instruction>
+あなたはRAG評価ベンチマークのRAGBenchを作成するアシスタントの一員です。
+QA問題を既に作成したので、次のステップとして**回答とは直接関係しない文書であるnegative_chunk_listを作成してください**
+作成したQA問題は<QA>に与えられる。
+negative_chunk_listは<QA_SCENARIO>のevidencesが絶対に含まれない文書であり、<QA>のanswerを導出することが不可能な文書であることが求めらる。
+ただしnegative_chunk_listは<QA_SCENARIO>のthemeと関連がある文書であることが望ましいです。例えばキーワードが含まれたり、意味的に類似度の高い文章など。
+関連性の高い文書でありつつ、evidencesが絶対に含まれない文書であることに注意してください。
+RAGBenchは<DEFINITION_RAGBENCH>に説明されています。
+QAシナリオの説明は<QA_SCENARIO>に説明されています。
+<Notes>を遵守してください。
+出力は<Output_Format>に従ってください。
+<QA_SCENARIO>
+- 具体的なRAGBenchの問題を作成するための骨子となるQAシナリオ。
+- QAシナリオは以下の要素を含む。
+	- theme: 作成するQAのテーマ
+	- evidences: questionからanswerを導出するための根拠となるエンティティに関する文章。複数の根拠を要するQAの場合は複数の説明がカンマ区切りで記述される。
+	- answering_process: questionに対してevidencesを用いてanswerを導出するために必要な簡潔な推論手順。
+</QA_SCENARIO>
+<Notes>
+- QAは架空エンティティにする問題であることに注意するとともに、**出力する文書は、「架空」という単語 や「このデータ・名前・情報は架空である」などの記述は一切用いてはならない。**
+- negative_chunkに、questionからanswerを導出可能な情報は絶対に含めてはならない。
+- negative_documentに「この情報は回答生成に不要な情報です」という旨の文言を含めることは禁止です。
+- negative_documentはRAGのretrieverが取ってきたがanswer生成に不要である情報を想定しています。したがって、negative_documentはQAのquestionの話題に関連する話題のであることが望ましいです。
+</Notes>
+<Output_Format>
+- title: 文章のタイトル
+- content: questionからanswerを導出するのに不要な情報のみが含まれた文章。文章の長さは約600トークン程度とする。
+</Output_Format>

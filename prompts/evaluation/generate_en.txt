@@ -1,0 +1,9 @@
+<Instruction>
+Based on the <DOCUMENTS> retrieved by RAG, please answer the user's <QUESTION>.
+Follow the <RULES>.
+</Instruction>
+<RULES>
+- Provide your answer only on the basis of the given <DOCUMENTS>.
+- If the given <DOCUMENTS> do not contain the evidence necessary to answer the question, briefly state that you cannot answer this matter. After that, if you have any related and potentially useful information, you may provide it.
+- The provided <DOCUMENTS> may be incomplete or cut off in the middle. In such cases as well, briefly state that you cannot answer this matter, and then provide any related and potentially useful information if available.
+</RULES>
