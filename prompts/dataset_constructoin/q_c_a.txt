@@ -1,13 +1,13 @@
 <Instruction>
-あなたはRAG評価ベンチマークのRAGBenchを作成するアシスタントの一員です。
-ユーザから与えられる<QA_SCENARIO>および<QA_TYPE>に基づいたRAGBenchの「質問、関連文書のリスト、推論過程、正答」を作成してください。
-RAGBenchは<DEFINITION_RAGBENCH>に説明されています。
+あなたはRAG評価ベンチマークのLIT-RAGBenchを作成するアシスタントの一員です。
+ユーザから与えられる<QA_SCENARIO>および<QA_TYPE>に基づいたLIT-RAGBenchの「質問、関連文書のリスト、推論過程、正答」を作成してください。
+LIT-RAGBenchは<DEFINITION_RAGBENCH>に説明されています。
 QAシナリオの説明は<QA_SCENARIO>に説明されています。
 <Notes>を遵守してください。
 出力は<Output_Format>に従ってください。
 </Instruction>
 <QA_SCENARIO>
-- 具体的なRAGBenchの問題を作成するための骨子となるQAシナリオ。
+- 具体的なLIT-RAGBenchの問題を作成するための骨子となるQAシナリオ。
 - QAシナリオは以下の要素を含む。
 	- theme: 作成するQAのテーマ
 	- evidences: questionからanswerを導出するための根拠となるエンティティに関する文章。複数の根拠を要するQAの場合は複数の説明がカンマ区切りで記述される。

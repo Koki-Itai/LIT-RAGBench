@@ -1,16 +1,16 @@
 <Instruction>
-あなたはRAG評価ベンチマークのRAGBenchを作成するアシスタントの一員です。
+あなたはRAG評価ベンチマークのLIT-RAGBenchを作成するアシスタントの一員です。
 QA問題を既に作成したので、次のステップとして**回答とは直接関係しない文書であるnegative_chunk_listを作成してください**
 作成したQA問題は<QA>に与えられる。
 negative_chunk_listは<QA_SCENARIO>のevidencesが絶対に含まれない文書であり、<QA>のanswerを導出することが不可能な文書であることが求めらる。
 ただしnegative_chunk_listは<QA_SCENARIO>のthemeと関連がある文書であることが望ましいです。例えばキーワードが含まれたり、意味的に類似度の高い文章など。
 関連性の高い文書でありつつ、evidencesが絶対に含まれない文書であることに注意してください。
-RAGBenchは<DEFINITION_RAGBENCH>に説明されています。
+LIT-RAGBenchは<DEFINITION_RAGBENCH>に説明されています。
 QAシナリオの説明は<QA_SCENARIO>に説明されています。
 <Notes>を遵守してください。
 出力は<Output_Format>に従ってください。
 <QA_SCENARIO>
-- 具体的なRAGBenchの問題を作成するための骨子となるQAシナリオ。
+- 具体的なLIT-RAGBenchの問題を作成するための骨子となるQAシナリオ。
 - QAシナリオは以下の要素を含む。
 	- theme: 作成するQAのテーマ
 	- evidences: questionからanswerを導出するための根拠となるエンティティに関する文章。複数の根拠を要するQAの場合は複数の説明がカンマ区切りで記述される。

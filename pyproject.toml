@@ -1,5 +1,5 @@
 [project]
-name = "ragbench"
+name = "lit-ragbench"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
