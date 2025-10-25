@@ -26,26 +26,28 @@ Each instance includes:
 
 #### `dataset_constructoin/`
 
-- **`step1.txt`**: Initial scenario generation prompt
-- **`step2.txt`**: Context generation prompt
-- **`step3.txt`**: Question-answer pair generation prompt
+Prompts used to assist in dataset construction with LLM (GPT-5).
+
+- **`qa_scenario.txt`**: Initial QA scenario generation prompt
+- **`q_c_a.txt`**: Question, positive chunks, reasoning, and answer generation prompt
+- **`negative_chunks.txt`**: Irrelevant document generation prompt
 
 #### `prompts/evaluation/`
 
+Prompts for evaluating LLM performance in this benchmark via LLM-as-a-Judge.
+
 - **`generate_en.txt`** / **`generate_ja.txt`**: System prompts for instructing the evaluated LLM to generate answers based on retrieved documents
 
-- **`judge_en.txt`** / **`judge_ja.txt`**: System prompts for the evaluator model to assess answer correctness
-
-The generation prompts instruct models to synthesize information from provided document chunks and cite sources appropriately. The judge prompts guide an LLM evaluator to score generated answers against reference answers on a binary scale (correct/incorrect).
+- **`judge_en.txt`** / **`judge_ja.txt`**: System prompts for the judge model to assess answer correctness
 
 ### 3. `src/`
 
-Reference implementation for running the evaluation:
+Example code for running the benchmark evaluation:
 
 Set the `OPENAI_API_KEY` environment variable or create a `.env` file with your API key.
 
 ```bash
 uv sync
-uv run python src/run.py --lang en --num-tasks 5
+uv run python src/run.py --lang en
 ```
 
