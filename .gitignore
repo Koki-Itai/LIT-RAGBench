@@ -219,3 +219,5 @@ cython_debug/
 
 # Local configuration
 local-config/
+
+results/
