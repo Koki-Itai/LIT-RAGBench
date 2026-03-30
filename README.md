@@ -5,7 +5,7 @@
 It focuses on whether a model can answer questions correctly given retrieved documents, independent of retrieval quality.
 The benchmark covers five categories: **Integration, Reasoning, Logic, Table, and Abstention**.
 
-![LIT-RAGBench abstract](./images/LIT-RAGBench_abstract.png)
+![LIT-RAGBench abstract](./images/LIT-RAGBench_abst.png)
 
 The LIT-RAGBench dataset is also available on [Hugging Face](https://huggingface.co/datasets/neoai-inc/LIT-RAGBench).
 
