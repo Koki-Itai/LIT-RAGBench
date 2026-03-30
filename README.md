@@ -1,36 +1,35 @@
-# Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation
+# LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation
 
 ## Overview
+**LIT-RAGBench** is a benchmark for evaluating generator capabilities in Retrieval-Augmented Generation (RAG).
+It focuses on whether a model can answer questions correctly given retrieved documents, independent of retrieval quality.
+The benchmark covers five categories: **Integration, Reasoning, Logic, Table, and Abstention**.
 
-This repository provides the supplementary materials for our research on evaluating the generation capabilities of Large Language Models (LLMs) in Retrieval-Augmented Generation.
+![LIT-RAGBench abstract](./images/LIT-RAGBench_abstract.png)
+
+The LIT-RAGBench dataset is also available on [Hugging Face](https://huggingface.co/datasets/neoai-inc/LIT-RAGBench).
+
+```python
+from datasets import load_dataset
+
+dataset = load_dataset("neoai-inc/LIT-RAGBench")
+```
 
 ## Repository Structure
 
-### 1. `datasets/`
+### Datasets: `datasets/`
 
-Contains the evaluation datasets in JSONL format:
+Each example includes the following fields:
 
-- **`ja.jsonl`**: Japanese evaluation dataset
-- **`en.jsonl`**: English evaluation dataset
-
-
-Each instance includes:
 - `question`
-- `answer`: Ground truth reference answer
-- `qa_type`: Question type classification
-- `positive_chunk_list`: Relevant chunks that contain evidence for generating the answer
-- `negative_chunk_list`: Irelevant chunks that do not contain evidence
-- `reasoning_content`: Detailed reasoning process for deriving the answer
+- `answer`: reference answer
+- `qa_type`: question type
+- `positive_chunk_list`: relevant evidence chunks
+- `negative_chunk_list`: irrelevant chunks
+- `reasoning_content`: reasoning process for deriving the answer
 
-### 2. `prompts/`
 
-#### `dataset_constructoin/`
-
-Prompts used to assist in dataset construction with LLM (GPT-5).
-
-- **`qa_scenario.txt`**: Initial QA scenario generation prompt
-- **`q_c_a.txt`**: Question, positive chunks, reasoning, and answer generation prompt
-- **`negative_chunks.txt`**: Irrelevant document generation prompt
+### Prompts:  `prompts/`
 
 #### `prompts/evaluation/`
 
@@ -40,7 +39,7 @@ Prompts for evaluating LLM performance in this benchmark via LLM-as-a-Judge.
 
 - **`judge_en.txt`** / **`judge_ja.txt`**: System prompts for the judge model to assess answer correctness
 
-### 3. `src/`
+### Code: `src/`
 
 Example code for running the benchmark evaluation:
 
@@ -54,11 +53,14 @@ uv run python src/run.py --lang en
 ## Reference
 
 ```bibtex
-@misc{lit_ragbench,
-    author = {Koki Itai, Shunichi Hasegawa, Yuta Yamamoto, Gouki Minegishi, Masaki Otsuki},
-    title = {{LIT-RAGBench}: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation},
-    howpublished = {\url{https://github.com/Koki-Itai/LIT-RAGBench}},
-    year = {2026},
+@misc{litragbench,
+      title={LIT-RAGBench: Benchmarking Generator Capabilities of Large Language Models in Retrieval-Augmented Generation},
+      author={Koki Itai and Shunichi Hasegawa and Yuta Yamamoto and Gouki Minegishi and Masaki Otsuki},
+      year={2026},
+      eprint={2603.06198},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2603.06198},
 }
 ```
 
