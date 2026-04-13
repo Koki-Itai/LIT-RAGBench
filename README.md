@@ -66,10 +66,7 @@ uv run python src/run.py --lang en
 
 
 ## License
-
-The code and data are released under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license. Commercial use is permitted provided that you follow the license terms, including attribution and sharing any derivative works under the same
-
-Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+The code and data are released under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license. Commercial use is permitted provided that you follow the license terms, including attribution and sharing any derivative works under the same.
 
 [![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
 
